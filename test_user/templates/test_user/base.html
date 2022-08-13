@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_platforma</title>
+</head>
+<body>
+    <h1>{{user}}</h1>
+    {%  if user.is_authenticated %}
+        {% block content %}
+        {% endblock %}
+        <a href = '{% url "logut" %}'>выйти</a>
+    
+    {% elif user.is_anonymous %}
+        <h1>Пожалусто войдите или Зарегистрируйтесь</h1>
+        <a href = "{% url 'login' %}">Вход</a>
+        <a href = "{% url 'register'%}">Регистрация</a>
+    {% endif %}
+</body>
+</html>
